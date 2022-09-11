@@ -1,5 +1,7 @@
 package ru.netology.ProductManager.service;
 
+import java.util.Collection;
+
 public class Product {
     protected int id;
     protected String name;

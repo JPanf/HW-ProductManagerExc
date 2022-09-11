@@ -57,7 +57,7 @@ public class ProductManagerTest {
     }
 
     @Test
-    public void shouldSearchByName() {
+    public void shouldFindAllByName() {
         //String text = "phone";
 
         Product[] actual = manager.searchBy("phone");
@@ -66,5 +66,23 @@ public class ProductManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void shouldFindOnlyOne() {
+        //String textSearch = "mouse";
 
+        Product[] actual = manager.searchBy("mouse");
+        Product[] expected = {good4};
+
+        Assertions.assertArrayEquals(actual, expected);
+    }
+
+    @Test
+    public void shouldFindNothingIfNo() {
+        //String textSearch = "shirt";
+
+        Product[] actual = manager.searchBy("shirt");
+        Product[] expected = {};
+
+        Assertions.assertArrayEquals(actual, expected);
+    }
 }
