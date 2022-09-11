@@ -17,6 +17,9 @@ public class ProductRepository {
     }
 
     public void removeById(int id) {
+        if (findById(id) == null) {
+            throw new NotFoundException("Товар с id " + id + " не существует");
+        }
         Product[] allGoods = new Product[goods.length - 1];
         int newIndex = 0;
         for (Product good : goods) {
@@ -28,7 +31,16 @@ public class ProductRepository {
         }
     }
 
+    public Product findById(int id) {
+        for (Product good : goods) {
+            if (good.getId() == id) {
+                return good;
+            }
+        }
+        return null;
+    }
 }
+
 
 
 

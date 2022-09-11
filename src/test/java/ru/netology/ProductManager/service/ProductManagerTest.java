@@ -47,8 +47,19 @@ public class ProductManagerTest {
 
     @Test
     public void shouldRemoveGoodsById() {
-        //int id = 400;
-        goodsRepo.removeById(400);
+        //int id = 555;
+        goodsRepo.removeById(555);
+
+        Product[] actual = goodsRepo.getGoods();
+        Product[] expected = {good1, good2, good3, good4, good6};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldStopIfNoId() {
+        //int id = 20;
+        goodsRepo.removeById(20);
 
         Product[] actual = goodsRepo.getGoods();
         Product[] expected = {good1, good2, good3, good5, good6};
