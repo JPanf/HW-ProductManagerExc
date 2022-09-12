@@ -16,6 +16,15 @@ public class ProductRepository {
         return goods;
     }
 
+    public Product findById(int id) {
+        for (Product good : goods) {
+            if (good.getId() == id) {
+                return good;
+            }
+        }
+        return null;
+    }
+
     public void removeById(int id) {
         if (findById(id) == null) {
             throw new NotFoundException("Товар с id " + id + " не существует");
@@ -29,15 +38,6 @@ public class ProductRepository {
             }
             goods = allGoods;
         }
-    }
-
-    public Product findById(int id) {
-        for (Product good : goods) {
-            if (good.getId() == id) {
-                return good;
-            }
-        }
-        return null;
     }
 }
 

@@ -25,48 +25,6 @@ public class ProductManagerTest {
         manager.add(good5);
         manager.add(good6);
     }
-
-    @Test
-    public void shouldShowAllAddedGoods() {
-        Product[] actual = goodsRepo.getGoods();
-        Product[] expected = {good1, good2, good3, good4, good5, good6};
-
-        Assertions.assertArrayEquals(actual, expected);
-    }
-
-    @Test
-    public void shouldAddNewProduct() {
-        Product good7 = new Book(7, "Add one more", 250, "V.Dobavkin");
-        manager.add(good7);
-
-        Product[] actual = goodsRepo.getGoods();
-        Product[] expected = {good1, good2, good3, good4, good5, good6, good7};
-
-        Assertions.assertArrayEquals(actual, expected);
-    }
-
-    @Test
-    public void shouldRemoveGoodsById() {
-        //int id = 555;
-        goodsRepo.removeById(555);
-
-        Product[] actual = goodsRepo.getGoods();
-        Product[] expected = {good1, good2, good3, good4, good6};
-
-        Assertions.assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    public void shouldStopIfNoId() {
-        //int id = 20;
-        goodsRepo.removeById(20);
-
-        Product[] actual = goodsRepo.getGoods();
-        Product[] expected = {good1, good2, good3, good5, good6};
-
-        Assertions.assertArrayEquals(expected, actual);
-    }
-
     @Test
     public void shouldFindAllByName() {
         //String text = "phone";
