@@ -57,7 +57,7 @@ public class ProductRepositoryTest {
 
     @Test
     public void shouldStopIfNoId() {
-        //int id = 20;
+        // int id = 20;
         // goodsRepo.removeById(20);
         Assertions.assertThrows(NotFoundException.class, () -> {
                     goodsRepo.removeById(20);

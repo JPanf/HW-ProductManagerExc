@@ -1,7 +1,7 @@
 package ru.netology.ProductManager.service;
 
 public class ProductManager {
-    ProductRepository goodsRepo;
+    protected ProductRepository goodsRepo;
 
     public ProductManager(ProductRepository goodsRepo) {
         this.goodsRepo = goodsRepo;
@@ -12,8 +12,9 @@ public class ProductManager {
     }
 
     private boolean matches(Product good, String textSearch) {
-        if (good.getName().contains(textSearch)) return true;
-        else {
+        if (good.getName().contains(textSearch)) {
+            return true;
+        } else {
             return false;
         }
     }
